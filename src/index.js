@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ChatRoom from './components/ChatRoom';
+import CreateChatRoom from './components/CreateChatRoom';
+import SearchChatRoom from './components/SearchChatRoom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <>
+  <ChatRoom />
+  <CreateChatRoom />
+  <SearchChatRoom />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
