@@ -1,0 +1,17 @@
+.SearchChatRoom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: aliceblue;
+    width: 500px;
+    height: 500px;
+}
+
+.SearchChatRoom button {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+
+}

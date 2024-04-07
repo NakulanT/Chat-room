@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ChatRoom from './components/ChatRoom';
-import CreateChatRoom from './components/CreateChatRoom';
-import SearchChatRoom from './components/SearchChatRoom';
+import Home from './Pages/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-  <ChatRoom />
-  <CreateChatRoom />
-  <SearchChatRoom />
+  <Home />
   </>
 );
 

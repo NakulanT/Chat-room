@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import CreateChatRoom from "../components/CreateChatRoom";
+import SearchChatRoom from "../components/SearchChatRoom";
+import ChatPage from "../components/ChatPage";
+import './Home.css';
 
 const Home = () => {
+    const [Auth, setAuth] = useState(false);
+    
     return (
-        <>
-        <h1>
-            Hello World
-        </h1>
-        </>
+        Auth ? (
+            <ChatPage />
+
+        ) : (
+            <div className="Home">
+            <CreateChatRoom setAuth={setAuth} />
+            <SearchChatRoom />
+        </div>
+
+        )
     );
 }
 
