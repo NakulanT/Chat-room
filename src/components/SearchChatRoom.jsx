@@ -6,12 +6,13 @@ import { app } from '../FirebaseConfig.js';
 const db = getDatabase(app);
 const roomsRef = ref(db, 'rooms');
 
-const SearchChatRoom = ({ onJoinRoom }) => {
+const SearchChatRoom = ({ setAuth , setroomId , setusername}) => {
   const [roomId, setRoomId] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
   const handleJoinRoom = async () => {
-    console.log('asss');
+    if (username) {
     try {
       const roomRef = child(roomsRef, roomId);
       const roomSnapshot = await get(roomRef);
@@ -19,7 +20,9 @@ const SearchChatRoom = ({ onJoinRoom }) => {
         const roomData = roomSnapshot.val();
         if (roomData.password === password) {
           alert('Password is correct. Joining Chat Room...');
-
+          setroomId(roomId);
+          setusername(username);
+          setAuth(true);
         } else {
           alert('Incorrect password. Please try again.');
         }
@@ -29,6 +32,9 @@ const SearchChatRoom = ({ onJoinRoom }) => {
     } catch (error) {
       console.error('Error joining room:', error);
       alert('Error joining room. Please try again.');
+    }}
+    else{
+      alert("Enter username properly")
     }
   };
 
@@ -44,6 +50,17 @@ const SearchChatRoom = ({ onJoinRoom }) => {
           placeholder="Enter Chat Room ID"
         />
       </div>
+
+      <div>
+        <label>Username : </label>
+        <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter Username"
+      />
+      </div>
+
       <div>
         <label>Password: </label>
         <input

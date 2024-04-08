@@ -4,9 +4,8 @@
     flex-direction: row;
     align-items: center;
     height: 100vh;
-    background-color: aqua;
     text-align: center;
-    gap: 0px;
+    gap: 30px;
     padding: 0 20%;
 }
 

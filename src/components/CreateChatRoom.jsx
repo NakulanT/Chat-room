@@ -6,12 +6,13 @@ import './CreateChatRoom.css';
 const db = getDatabase(app);
 const roomsRef = ref(db, 'rooms');
 
-const CreateChatRoom = ({ setAuth }) => {
+const CreateChatRoom = ({ setAuth , setroomId , setusername}) => {
   const [roomId, setRoomId] = useState('');
   const [password, setPassword] = useState('');
-  const chats = ""
+  const [username, setUsername] = useState('');
 
   const handleCreateRoom = async () => {
+    if (username){
     try {
       const roomRef = child(roomsRef, roomId);
       const roomSnapshot = await get(roomRef);
@@ -19,20 +20,27 @@ const CreateChatRoom = ({ setAuth }) => {
         alert('Room ID already exists. Please choose a different ID.');
       } else {
         // Save the room ID, password, and initialize chats as an empty object
-        await set(roomRef, { password , chats });
-        const ChatRef = ref(db, `rooms/${roomId}/chats/`);
+        await set(roomRef, { password });
+        const ChatRef = ref(db, `rooms/${roomId}`);
         push(ChatRef);
 
 
         alert('Room created successfully! Room ID: ' + roomId);
+        setroomId(roomId);
+        setusername(username);
         setRoomId(''); // Clear the input fields after successful creation
         setPassword('');
+        setUsername('');
         setAuth(true);
       }
     } catch (error) {
       console.error('Error creating or checking room:', error);
       alert('Error creating or checking room. Please try again.');
+    }}
+    else{
+      alert("Enter Username its should'nt be null !")
     }
+
   };
 
   return (
@@ -47,6 +55,17 @@ const CreateChatRoom = ({ setAuth }) => {
           placeholder="Enter Chat Room ID"
         />
       </div>
+
+      <div>
+        <label>Username : </label>
+        <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter Username"
+      />
+      </div>
+
       <div>
         <label>Password : </label>
         <input

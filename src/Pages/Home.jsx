@@ -6,17 +6,17 @@ import './Home.css';
 
 const Home = () => {
     const [Auth, setAuth] = useState(false);
+    const [roomId , setroomId] = useState('');
+    const [username , setusername] = useState('');
     
     return (
         Auth ? (
-            <ChatPage />
-
+            <ChatPage roomId={roomId}  username = {username}/>
         ) : (
             <div className="Home">
-            <CreateChatRoom setAuth={setAuth} />
-            <SearchChatRoom />
-        </div>
-
+                <CreateChatRoom setAuth={setAuth} setroomId={setroomId}  setusername={setusername} />
+                <SearchChatRoom setAuth={setAuth} setroomId={setroomId} setusername ={setusername} />
+            </div>
         )
     );
 }
