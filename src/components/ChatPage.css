@@ -77,7 +77,7 @@
     height: auto;
     margin-top: 10px;
     margin-bottom: 20px;
-    animation: slidin-right 0.6s ease-in-out;
+    animation: slidin-left 0.6s ease-in-out;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
