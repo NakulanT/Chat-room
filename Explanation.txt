@@ -1,0 +1,1 @@
+In this A chat appilcation is created for anonymous chat
