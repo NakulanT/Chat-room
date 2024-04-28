@@ -1,1 +1,1 @@
-In this A chat appilcation is created for anonymous chat using rommId.
+In this A chat appilcation is created for anonymous chat using rommId and password.
